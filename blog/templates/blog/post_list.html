@@ -1,0 +1,60 @@
+{% extends 'blog/base.html' %}
+
+
+{% block content %}
+<!-- Header -->
+  <header id="portfolio">
+    <a href="#"><img src="/w3images/avatar_g2.jpg" style="width:65px;" class="w3-circle w3-right w3-margin w3-hide-large w3-hover-opacity"></a>
+    <span class="w3-button w3-hide-large w3-xxlarge w3-hover-text-grey" onclick="w3_open()"><i class="fa fa-bars"></i></span>
+    <div class="w3-container">
+
+        {% if user.is_authenticated %}
+        <h1><b>OPPORTUNITIES</b>
+        <a href="{% url 'post_new' %}" class=" w3-right top-menu"><span class="glyphicon glyphicon-plus"></span></a>
+      <a href="{% url 'post_draft_list' %}" class="top-menu w3-right" style="padding-right:20px"><span class="glyphicon glyphicon-edit"></span></a></h1>
+        {% else %}
+        <h1><b>OPPORTUNITIES</b></h1>
+         <a href="{% url 'login' %}" class="top-menu "><span class="glyphicon glyphicon-lock">login</span></a>
+        {% endif %}
+    <div class="w3-section w3-bottombar w3-padding-16">
+      <span class="w3-margin-right">Filter:</span>
+      <button class="w3-button w3-black">ALL</button>
+      <button class="w3-button w3-white"><i class="fa fa-diamond w3-margin-right"></i>Free</button>
+      <button class="w3-button w3-white w3-hide-small"><i class="fa fa-photo w3-margin-right"></i>Paid</button>
+    </div>
+    </div>
+  </header>
+
+    {% for post in posts %}
+        <!--<div class="post">-->
+            <!--<p class="date">created: {{ post.created_date|date:'d-m-Y' }}</p>-->
+            <!--<h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>-->
+            <!--<p>{{ post.text|truncatechars:200 }}</p>-->
+        <!--</div>-->
+
+        <!-- First Photo Grid-->
+
+    <div class=" w3-col s6  w3-mobile" >
+      <img src="/w3images/mountains.jpg" alt="Norway" style="width:100%" class="w3-hover-opacity">
+      <div class="w3-container w3-white">
+          <h3><b><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></b></h3>
+          <p class="w3-container">{{ post.text|linebreaksbr }}</p>
+          <p><b>Published by: {{ post.author }}</b> <i> On: {{ post.published_date }}</i></p>
+            <a href="{% url 'post_detail' pk=post.pk %}">Comments: {{ post.comments.count }}</a>
+      </div>
+    </div>
+
+
+
+    {% endfor %}
+
+<div class="w3-container w3-padding-large" style="margin-bottom:32px">
+    <h4><b>About Me</b></h4>
+    <p>I'm a blockchain and cryptocurrency enthusiast with 5 years in this industry
+    I'm a blockchain and cryptocurrency enthusiast
+        with 5 years in this industryI'm a blockchain and cryptocurrency enthusiast with 5 years in this i
+        ndustry I'm a blockchain and cryptocurrency enthusiast with 5 years in this industry</p>
+    <hr>
+
+  </div>
+{% endblock %}

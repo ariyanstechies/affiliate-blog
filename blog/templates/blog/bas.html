@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/w3.css' %}">
+
+    <title>Densy|blog</title>
+</head>
+    <body>
+
+   <body>
+    <div class="w3-container w3-teal">
+        <h1><a href="/">Med Place blog</a>
+                {% if user.is_authenticated %}
+                    <a href="{% url 'post_new' %}" class=" w3-right top-menu"><span class="glyphicon glyphicon-plus"></span></a>
+                    <a href="{% url 'post_draft_list' %}" class="top-menu"><span class="glyphicon glyphicon-edit"></span></a>
+                    <p class="top-menu">Hello {{ user.username }} <small>(<a href="{% url 'logout' %}">Log out</a>)</small></p>
+
+                {% else %}
+                    <a href="{% url 'login' %}" class="top-menu"><span class="glyphicon glyphicon-lock"></span></a>
+                {% endif %}
+        </h1>
+    </div>
+    <div class="content container">
+        <div class="row">
+            <div class="col-md-8 " style="padding-left:20%">
+            {% block content %}
+            {% endblock %}
+            </div>
+        </div>
+    </div>
+</body>
+    </body>
+</html>
