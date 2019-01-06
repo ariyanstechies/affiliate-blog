@@ -7,6 +7,7 @@ class Post(models.Model):
     author = models.ForeignKey('auth.User', on_delete=models.CASCADE)
     title = models.CharField(max_length=200)
     text = models.TextField()
+    link = models.CharField(max_length=500, default="https://hairways.co.ke")
 
     created_date = models.DateTimeField(
             default=timezone.now)
