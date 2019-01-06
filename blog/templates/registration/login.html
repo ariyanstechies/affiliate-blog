@@ -1,24 +1,40 @@
 {% extends "blog/base.html" %}
 
 {% block content %}
+
+<br>
+<div class="w3-panel w3-center w3-pale-yellow w3-border" >
+  <h3>Warning!</h3>
+  <p>Warning only the admin or persons authorized by admin are allowed to login here</p>
+</div>
+<br>
     {% if form.errors %}
         <p>Your username and password didn't match. Please try again.</p>
     {% endif %}
 
-    <form method="post" action="{% url 'login' %}">
+<div class="w3-container w3-card-4" >
+<form method="post" action="{% url 'login' %}">
     {% csrf_token %}
-        <table>
+        <table class="w3-table">
+            <br>
         <tr>
+
             <td>{{ form.username.label_tag }}</td>
+
             <td>{{ form.username }}</td>
+
         </tr>
+
         <tr>
             <td>{{ form.password.label_tag }}</td>
             <td>{{ form.password }}</td>
         </tr>
         </table>
-
-        <input type="submit" value="login" />
+<br>
+        <input type="submit" value="login" class="w3-button w3-white w3-large w3-border w3-border-red w3-round-large"/>
         <input type="hidden" name="next" value="{{ next }}" />
+    <hr>
     </form>
+
+    </div>
 {% endblock %}
