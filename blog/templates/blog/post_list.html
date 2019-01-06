@@ -39,7 +39,9 @@
 
     <p><b>Published by: {{ post.author }}</b> <i> On: {{ post.published_date }}</i></p>
 
-    <a href="{% url 'post_detail' pk=post.pk %}">Comments: {{ post.comments.count }}</a>
+    <a href="{% url 'post_detail' pk=post.pk %}" class="w3-pale-green">Comments: {{ post.comments.count }}</a>
+        <a><i class="fa fa-share-alt w3-pale-green ">Share:90</i></a>
+        <i class="fa fa-eye w3-pale-green">Views:68</i>
     </div>
 </div>
 
