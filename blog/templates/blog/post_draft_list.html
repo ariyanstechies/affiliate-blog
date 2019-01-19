@@ -1,6 +1,7 @@
 {% extends 'blog/base.html' %}
 
 {% block content %}
+<a  href="{% url 'post_list' %}" class="w3-button w3-white w3-border w3-border-red w3-round-large w3-margin-bottom"><i class="fa fa-paper-plane w3-margin-right"></i>Go Back</a>
     {% for post in posts %}
         <div class="post">
             <p class="date">created: {{ post.created_date|date:'d-m-Y' }}</p>
