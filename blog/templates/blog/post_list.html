@@ -38,8 +38,8 @@ FREE
         <img src="{% static 'images/me.jpg' %}" alt="Norway" style="height:150px;float:left ; width:50%" class="w3-hover-opacity w3-animate-fading">
         <p class="w3-containr" style="float:left;padding-left:10px; height:150px; overflow:hidden ; width:50% ">{{ post.text|linebreaksbr }}</p>
 
-<a  href="{% url 'post_list' %}" class="w3-button w3-white w3-border w3-border-red w3-round-large w3-margin-bottom">Go Back</a>
-        <a  href="{% url 'post_list' %}" class="w3-button w3-white w3-border w3-border-red w3-round-large w3-margin-bottom">Go Back</a>
+<a  href="{% url 'post_list' %}" class="w3-button w3-white w3-border w3-border-red w3-round-large w3-margin-bottom">Visit</a>
+        <a  href="{% url 'post_list' %}" class="w3-button w3-white w3-border w3-border-red w3-round-large w3-margin-bottom">See more</a>
     <p><b>Published by: {{ post.author }}</b> <i> On: {{ post.published_date }}</i></p>
 
     <a href="{% url 'post_detail' pk=post.pk %}" class="w3-pale-green">Comments: {{ post.comments.count }}</a>
